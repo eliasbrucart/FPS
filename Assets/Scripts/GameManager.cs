@@ -10,6 +10,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int score;
 
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+        }
+    }
+
     public Player player;
 
     private void Awake()
