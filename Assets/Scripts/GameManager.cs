@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int score;
 
+    public Player player;
+
     private void Awake()
     {
         if(instanceGameManager != null && instanceGameManager != this)
@@ -23,11 +25,18 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
     }
 
     void Update()
     {
-        
+        CheckGameOver();
+    }
+
+    private void CheckGameOver()
+    {
+        if (player.IsAlive())
+        {
+            ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
+        }
     }
 }
