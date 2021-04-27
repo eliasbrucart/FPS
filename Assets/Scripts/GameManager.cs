@@ -52,9 +52,9 @@ public class GameManager : MonoBehaviour
 
     private void CheckGameOver()
     {
-        if (player.IsAlive())
+        if (!player.IsAlive())
         {
-            ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
+            ScenesManager.instanceScenesManager.ChangeScene("GameOver");
         }
     }
 }
