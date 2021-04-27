@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public Player player;
     public Bomb bomb;
+    public Box box;
 
     private void Awake()
     {
@@ -45,6 +46,8 @@ public class GameManager : MonoBehaviour
         CheckGameOver();
         bomb.SpawnBombs();
         bomb.DeleteBombs();
+        box.SpawnBox();
+        box.DeleteBox();
     }
 
     private void CheckGameOver()
