@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4266964ff1e814a9b42d8d04aa40a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 4468582941769995748}
+  bombsRandom: []
+  amountOfBombs: 20
 --- !u!1001 &9171646941366122204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73,15 +76,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.229126
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.395192
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.486229
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalRotation.w
@@ -89,15 +92,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

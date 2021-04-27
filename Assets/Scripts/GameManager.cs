@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     public Player player;
+    public Bomb bomb;
 
     private void Awake()
     {
@@ -42,13 +43,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CheckGameOver();
+        bomb.SpawnBombs();
+        bomb.DeleteBombs();
     }
 
     private void CheckGameOver()
     {
         if (player.IsAlive())
         {
-            ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
+            //ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
         }
     }
 }
