@@ -43,18 +43,18 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        CheckGameOver();
         bomb.SpawnBombs();
         bomb.DeleteBombs();
         box.SpawnBox();
         box.DeleteBox();
+        CheckGameOver();
     }
 
     private void CheckGameOver()
     {
         if (player.IsAlive())
         {
-            //ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
+            ScenesManager.instanceScenesManager.ChangeScene("GamveOver");
         }
     }
 }
