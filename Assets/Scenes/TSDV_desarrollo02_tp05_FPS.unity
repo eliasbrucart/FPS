@@ -952,6 +952,7 @@ MonoBehaviour:
   player: {fileID: 1606010095}
   bomb: {fileID: 4632123048494402438, guid: 2f926f69a5395784bbfaeed91462d0aa, type: 3}
   box: {fileID: 3170375478630512483, guid: 5a3256a01c0e8544d9c2812526eeb278, type: 3}
+  gun: {fileID: 227277993}
 --- !u!4 &1936616971
 Transform:
   m_ObjectHideFlags: 0

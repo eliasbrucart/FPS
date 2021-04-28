@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public Player player;
     public Bomb bomb;
     public Box box;
+    public Gun gun;
 
     private void Awake()
     {
@@ -47,7 +48,14 @@ public class GameManager : MonoBehaviour
         bomb.DeleteBombs();
         box.SpawnBox();
         box.DeleteBox();
+        KillEnemy();
         CheckGameOver();
+    }
+
+    private void KillEnemy()
+    {
+        if (gun.Shoot())
+            score += 10;
     }
 
     private void CheckGameOver()

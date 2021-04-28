@@ -13,10 +13,10 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        Shoot();
+
     }
 
-    void Shoot()
+    public bool Shoot()
     {
         float x = Input.GetAxis("Mouse X");
         float y = Input.GetAxis("Mouse Y");
@@ -35,8 +35,11 @@ public class Gun : MonoBehaviour
                 if(hit.collider.gameObject.tag == "Bomb")
                 {
                     hit.collider.gameObject.SetActive(false);
+                    return true;
                 }
             }
+            return false;
         }
+        return false;
     }
 }
