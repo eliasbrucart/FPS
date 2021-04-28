@@ -46,6 +46,7 @@ public class Box : MonoBehaviour
             for(int i = 0; i < boxesRandom.Count; i++)
             {
                 Destroy(boxesRandom[i].gameObject);
+                boxesRandom.RemoveAt(i);
             }
             timeToDestroy = 0.0f;
         }

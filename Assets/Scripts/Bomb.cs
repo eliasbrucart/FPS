@@ -18,7 +18,8 @@ public class Bomb : MonoBehaviour
 
     void Update()
     {
-             
+        timeToSpawn = 0.0f;
+        timeToDelete = 0.0f;
     }
 
     public void SpawnBombs()
@@ -45,6 +46,7 @@ public class Bomb : MonoBehaviour
             for(int i = 0; i < bombsRandom.Count; i++)
             {
                 Destroy(bombsRandom[i].gameObject);
+                bombsRandom.RemoveAt(i);
             }
             timeToDelete = 0.0f;
         }

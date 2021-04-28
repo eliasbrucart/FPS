@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2333950180944889857}
   - component: {fileID: 4632123048494402438}
+  - component: {fileID: 7972545113244977003}
   m_Layer: 0
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,8 +46,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4468582941769995748}
-  bombsRandom: []
-  amountOfBombs: 20
+  bombsRandom:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  amountOfBombs: 5
+--- !u!65 &7972545113244977003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468582941769995748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4962637, y: 0.20589066, z: 1.6081965}
+  m_Center: {x: 0.003103733, y: 0.0961473, z: -0.0025119483}
 --- !u!1001 &9171646941366122204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,6 +131,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6400000, guid: 8f3bca1ae40d27e4a8a895f632c41e99, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

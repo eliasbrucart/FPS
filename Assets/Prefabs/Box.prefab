@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3170375478630512483}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxPrefab: {fileID: 5569990888039820488}
   boxesRandom: []
-  amountOfBoxes: 5
+  amountOfBoxes: 3
 --- !u!1001 &5569990888170661610
 PrefabInstance:
   m_ObjectHideFlags: 0
