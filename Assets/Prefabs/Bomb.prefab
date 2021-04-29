@@ -46,12 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombPrefab: {fileID: 4468582941769995748}
-  bombsRandom:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  bombsRandom: []
   amountOfBombs: 5
 --- !u!65 &7972545113244977003
 BoxCollider:
@@ -61,11 +56,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4468582941769995748}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4962637, y: 0.20589066, z: 1.6081965}
-  m_Center: {x: 0.003103733, y: 0.0961473, z: -0.0025119483}
+  m_Size: {x: 1.4962637, y: 0.65974176, z: 1.6081965}
+  m_Center: {x: 0.003103733, y: 0.32307285, z: -0.0025119781}
 --- !u!1001 &9171646941366122204
 PrefabInstance:
   m_ObjectHideFlags: 0

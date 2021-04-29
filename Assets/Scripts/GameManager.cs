@@ -44,8 +44,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        bomb.SpawnBombs();
-        bomb.DeleteBombs();
+        bomb.SpawnBomb();
+        bomb.DeleteBomb();
         box.SpawnBox();
         box.DeleteBox();
         KillEnemy();
@@ -55,13 +55,15 @@ public class GameManager : MonoBehaviour
     private void KillEnemy()
     {
         if (gun.Shoot())
-            score += 10;
+            score += 100;
     }
 
     private void CheckGameOver()
     {
         if (!player.IsAlive())
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             ScenesManager.instanceScenesManager.ChangeScene("GameOver");
         }
     }

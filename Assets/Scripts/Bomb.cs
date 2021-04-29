@@ -22,7 +22,7 @@ public class Bomb : MonoBehaviour
         timeToDelete = 0.0f;
     }
 
-    public void SpawnBombs()
+    public void SpawnBomb()
     {
         timeToSpawn += Time.deltaTime;
         if (timeToSpawn >= 10.0f)
@@ -38,7 +38,7 @@ public class Bomb : MonoBehaviour
         }
     }
 
-    public void DeleteBombs()
+    public void DeleteBomb()
     {
         timeToDelete += Time.deltaTime;
         if(timeToDelete >= 15.0f)

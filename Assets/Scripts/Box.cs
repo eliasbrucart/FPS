@@ -12,15 +12,6 @@ public class Box : MonoBehaviour
 
     private float timeToSpawm;
     private float timeToDestroy;
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     public void SpawnBox()
     {

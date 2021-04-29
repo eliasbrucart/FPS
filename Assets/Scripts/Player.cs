@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     {
         get
         {
-            return Life;
+            return life;
         }
         set
         {
@@ -32,4 +32,15 @@ public class Player : MonoBehaviour
             return false;
         return true;
     }
+
+
+   private void OnTriggerEnter(Collider other)
+   {
+       if(other.gameObject.tag == "Bomb")
+       {
+           Debug.Log("Hizo trigger!");
+           life -= 50;
+           other.gameObject.SetActive(false);
+       }
+   }
 }

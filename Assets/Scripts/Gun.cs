@@ -11,11 +11,6 @@ public class Gun : MonoBehaviour
         cam = Camera.main;
     }
 
-    void Update()
-    {
-
-    }
-
     public bool Shoot()
     {
         float x = Input.GetAxis("Mouse X");
