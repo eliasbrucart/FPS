@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Bomb bomb;
     public Box box;
     public Gun gun;
+    public Ghost ghost;
 
     private void Awake()
     {
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         bomb.DeleteBomb();
         box.SpawnBox();
         box.DeleteBox();
+        ghost.MoveGhost();
         KillEnemy();
         CheckGameOver();
     }
