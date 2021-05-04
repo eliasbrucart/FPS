@@ -15,8 +15,8 @@ public class Ghost : MonoBehaviour
     [SerializeField] private GhostState state;
 
     [SerializeField] private float speed = 10;
-    [SerializeField] private float distanceStop = 2;
-    [SerializeField] private float distanceRestart = 10;
+    [SerializeField] private float distanceStop = 6;
+    [SerializeField] private float distanceRestart = 20;
 
     [SerializeField] private Transform target;
 
@@ -28,7 +28,7 @@ public class Ghost : MonoBehaviour
         switch (state)
         {
             case GhostState.Idle:
-                if (time > 2)
+                if (time > 10)
                 {
                     NextState();
                 }

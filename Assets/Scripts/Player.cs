@@ -42,5 +42,11 @@ public class Player : MonoBehaviour
            life -= 50;
            other.gameObject.SetActive(false);
        }
+
+       if(other.gameObject.tag == "Box")
+        {
+            GameManager.instanceGameManager.Score += 100;
+            other.gameObject.SetActive(false);
+        }
    }
 }

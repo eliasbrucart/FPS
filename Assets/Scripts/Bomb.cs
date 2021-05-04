@@ -13,13 +13,18 @@ public class Bomb : MonoBehaviour
     private float timeToDelete;
     void Start()
     {
-        
+        timeToSpawn = 0.0f;
+        timeToDelete = 0.0f;
     }
 
     void Update()
     {
-        timeToSpawn = 0.0f;
-        timeToDelete = 0.0f;
+        
+    }
+
+    public void BombNearPlayer()
+    {
+
     }
 
     public void SpawnBomb()

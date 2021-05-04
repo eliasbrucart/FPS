@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bomb
   - Box
+  - Ghost
   layers:
   - Default
   - TransparentFX
