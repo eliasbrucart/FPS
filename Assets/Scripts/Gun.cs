@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,19 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private int distanceRay;
+
+    public static event Action<Gun> AddScore;
     void Start()
     {
         cam = Camera.main;
     }
 
-    public bool Shoot()
+    private void Update()
+    {
+        Shoot();
+    }
+
+    public void Shoot()
     {
         float x = Input.GetAxis("Mouse X");
         float y = Input.GetAxis("Mouse Y");
@@ -30,11 +38,9 @@ public class Gun : MonoBehaviour
                 if(hit.collider.gameObject.tag == "Bomb")
                 {
                     hit.collider.gameObject.SetActive(false);
-                    return true;
+                    AddScore?.Invoke(this);
                 }
             }
-            return false;
         }
-        return false;
     }
 }

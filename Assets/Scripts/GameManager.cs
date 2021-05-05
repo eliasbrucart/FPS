@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        Gun.AddScore += KillEnemy;
+        HighScore = PlayerPrefs.GetInt("highScore");
     }
 
     void Update()
@@ -64,18 +66,18 @@ public class GameManager : MonoBehaviour
         //box.SpawnBox();
         //box.DeleteBox();
         spawner.SpawnQueue();
-        KillEnemy();
+        //KillEnemy();
         CheckGameOver();
     }
 
-    private void KillEnemy()
+    private void KillEnemy(Gun gun)
     {
-        if (gun.Shoot())
+        score += 100;
+        if(score > highScore)
         {
-            score += 100;
             PlayerPrefs.SetInt("highScore", score);
             PlayerPrefs.Save();
-        }
+        }   
     }
 
     private void CheckGameOver()
@@ -86,5 +88,10 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             ScenesManager.instanceScenesManager.ChangeScene("GameOver");
         }
+    }
+
+    private void OnDestroy()
+    {
+        Gun.AddScore -= KillEnemy;
     }
 }
