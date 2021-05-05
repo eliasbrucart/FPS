@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int life;
+
+    [SerializeField]private float playerInmune;
+    [SerializeField]private float timerFlag;
+    private bool flag;
     public int Life 
     {
         get
@@ -19,11 +23,18 @@ public class Player : MonoBehaviour
     void Start()
     {
         life = 100;
+        flag = false;
     }
 
     void Update()
     {
-        
+        if (timerFlag <= playerInmune && flag)
+            timerFlag += Time.deltaTime;
+        else
+        {
+            flag = false;
+            timerFlag = 0.0f;
+        }
     }
 
     public bool IsAlive()
@@ -35,18 +46,17 @@ public class Player : MonoBehaviour
 
 
    private void OnTriggerEnter(Collider other)
-   {
-       if(other.gameObject.tag == "Bomb")
+   { 
+       if(other.gameObject.tag == "explosionArea" && flag == false)
        {
-           Debug.Log("Hizo trigger!");
            life -= 50;
-           other.gameObject.SetActive(false);
+           flag = true;
        }
-
+   
        if(other.gameObject.tag == "Box")
-        {
+       {
             GameManager.instanceGameManager.Score += 100;
             other.gameObject.SetActive(false);
-        }
+       }
    }
 }

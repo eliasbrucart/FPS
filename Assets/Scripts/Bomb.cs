@@ -4,56 +4,52 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    public GameObject bombPrefab;
-    public List<GameObject> bombsRandom = new List<GameObject>();
+    public int damage;
+    [SerializeField] GameObject explosionArea;
 
-    [SerializeField] private int amountOfBombs;
+    [SerializeField]private float timeToActivate;
+    private float timerToActivate;
 
-    private float timeToSpawn;
-    private float timeToDelete;
-    void Start()
-    {
-        timeToSpawn = 0.0f;
-        timeToDelete = 0.0f;
-    }
+    [SerializeField]private float timeToDesactivate;
+    private float timerToDesactivate;
 
+    [SerializeField]private float timeToDestroy;
+    private float timerToDestroy;
+
+    private bool active;
     void Update()
     {
-        
-    }
-
-    public void BombNearPlayer()
-    {
-
-    }
-
-    public void SpawnBomb()
-    {
-        timeToSpawn += Time.deltaTime;
-        if (timeToSpawn >= 10.0f)
+        if(active)
         {
-            for (int i = 0; i < amountOfBombs; i++)
-            {
-                float randomX = Random.Range(40.0f, 130.0f);
-                float randomZ = Random.Range(40.0f, 210.0f);
-                GameObject go = Instantiate(bombPrefab, new Vector3(randomX, 0.0f, randomZ), Quaternion.identity);
-                bombsRandom.Add(go);
-            }
-            timeToSpawn = 0.0f;
+            timerToActivate += Time.deltaTime;
+            if(timerToActivate >= timeToActivate)
+                timerToDestroy += Time.deltaTime;
+            OnExplosion();
         }
     }
 
-    public void DeleteBomb()
-    {
-        timeToDelete += Time.deltaTime;
-        if(timeToDelete >= 15.0f)
+    public void OnExplosion()
+    { 
+        if (timerToActivate >= timeToActivate)
         {
-            for(int i = 0; i < bombsRandom.Count; i++)
+            explosionArea.SetActive(true);
+            if (GameManager.instanceGameManager != null)
             {
-                Destroy(bombsRandom[i].gameObject);
-                bombsRandom.RemoveAt(i);
+                GameManager.instanceGameManager.spawner.DecreaseCountBomb();
             }
-            timeToDelete = 0.0f;
+        }
+
+        if(timerToDestroy >= timeToDestroy)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            active = true;
         }
     }
 }

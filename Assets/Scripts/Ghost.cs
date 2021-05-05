@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Ghost : MonoBehaviour
 {
@@ -21,6 +20,17 @@ public class Ghost : MonoBehaviour
     [SerializeField] private Transform target;
 
     [SerializeField] private float time;
+    [SerializeField] private float timeSpawn;
+
+    private void Start()
+    {
+        target = FindObjectOfType<FirstPersonController>().transform;
+    }
+
+    private void Update()
+    {
+        MoveGhost();
+    }
 
     public void MoveGhost()
     {
@@ -34,16 +44,22 @@ public class Ghost : MonoBehaviour
                 }
                 break;
             case GhostState.GoingToTarget:
-                Vector3 direction = target.position - transform.position;
-                transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
-                if (Vector3.Distance(transform.position, target.position) < distanceStop)
-                    NextState();
+                if(target != null)
+                {
+                    Vector3 direction = target.position - transform.position;
+                    transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+                    if (Vector3.Distance(transform.position, target.position) < distanceStop)
+                        NextState();
+                }
                 break;
             case GhostState.GoAway:
-                Vector3 direction2 = transform.position - target.position;
-                transform.Translate(direction2.normalized * speed * Time.deltaTime, Space.World);
-                if (Vector3.Distance(transform.position, target.position) > distanceRestart)
-                    NextState();
+                if(target != null)
+                {
+                    Vector3 direction2 = transform.position - target.position;
+                    transform.Translate(direction2.normalized * speed * Time.deltaTime, Space.World);
+                    if (Vector3.Distance(transform.position, target.position) > distanceRestart)
+                        NextState();
+                }
                 break;
         }
     }

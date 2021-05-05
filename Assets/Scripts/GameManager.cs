@@ -61,12 +61,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         HighScore = PlayerPrefs.GetInt("highScore");
-        //bomb.SpawnBomb();
-        //bomb.DeleteBomb();
-        //box.SpawnBox();
-        //box.DeleteBox();
         spawner.SpawnQueue();
-        //KillEnemy();
         CheckGameOver();
     }
 

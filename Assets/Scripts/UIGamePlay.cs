@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIGamePlay : MonoBehaviour
 {
-    public Text pointsText;
+    public Text scoreText;
     public Text highScoreText;
     public Text healthText;
 
@@ -17,7 +17,7 @@ public class UIGamePlay : MonoBehaviour
 
     void Update()
     {
-        pointsText.text = "Points: " + GameManager.instanceGameManager.Score;
+        scoreText.text = "Score: " + GameManager.instanceGameManager.Score;
         highScoreText.text = "High Score: " + GameManager.instanceGameManager.HighScore;
         healthText.text = "Health: " + player.Life;
     }
