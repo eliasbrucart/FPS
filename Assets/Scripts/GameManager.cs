@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     static public GameManager Instance { get { return instanceGameManager; } }
 
     [SerializeField] private int score;
+    [SerializeField] private int highScore;
 
     public int Score
     {
@@ -22,11 +23,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int HighScore
+    {
+        get
+        {
+            return highScore;
+        }
+        set
+        {
+            highScore = value;
+        }
+    }
+
     public Player player;
     public Bomb bomb;
     public Box box;
     public Gun gun;
-    public Ghost ghost;
+    public Spawner spawner;
 
     private void Awake()
     {
@@ -45,11 +58,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        bomb.SpawnBomb();
-        bomb.DeleteBomb();
-        box.SpawnBox();
-        box.DeleteBox();
-        ghost.MoveGhost();
+        HighScore = PlayerPrefs.GetInt("highScore");
+        //bomb.SpawnBomb();
+        //bomb.DeleteBomb();
+        //box.SpawnBox();
+        //box.DeleteBox();
+        spawner.SpawnQueue();
         KillEnemy();
         CheckGameOver();
     }
@@ -57,7 +71,11 @@ public class GameManager : MonoBehaviour
     private void KillEnemy()
     {
         if (gun.Shoot())
+        {
             score += 100;
+            PlayerPrefs.SetInt("highScore", score);
+            PlayerPrefs.Save();
+        }
     }
 
     private void CheckGameOver()
